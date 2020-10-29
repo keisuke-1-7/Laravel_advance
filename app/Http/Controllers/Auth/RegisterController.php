@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth; //名前空間といい、クラスを重複しても識別できるようにしている。基本的にはこのファイルのパスとしている
 
-use App\User;
-use App\Http\Controllers\Controller;
+use App\User;                                   //Userクラス(どこの？)をこのRegisterControllerで使えるように定義している
+use App\Http\Controllers\Controller;            //ControllerクラスをこのRegisterControllerで使えるように定義している
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
+class RegisterController extends Controller     //ここの最後の  Controllerは  =  App\Http\Controllers\Controller  の意味
+//このRegisterControllerクラスは、Controllerクラスを継承しますと言う意味
+//こうすることでControllerクラスに記述されている変数や関数をこのRegisterControllerクラス内で扱える
 {
     /*
     |--------------------------------------------------------------------------
@@ -20,14 +22,16 @@ class RegisterController extends Controller
     |
     */
 
-    use RegistersUsers;
+    use RegistersUsers;  //これがトレイト！！
+    //「RegistersUsers」と言うクラスを使えますよと定義しているが、これは 
+    //showRegistrationForm と register アクションをこのクラス内で使えますよという意味で他のファイルに「RegistersUsers」の中身が定義されている。
 
     /**
      * Where to redirect users after registration.
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.

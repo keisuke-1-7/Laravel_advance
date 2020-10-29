@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');//新規登録フォームを表示させるという意味で、名前をsignupとしている
+Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');//新規ユーザー登録を実行する（ユーザー登録したい情報を送信する）

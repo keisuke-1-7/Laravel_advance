@@ -9,7 +9,7 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run()　//seederを実行することでこのファンクションが呼び出されて、結局UsersTableSeederが呼び出されて実行される？
     {
         $this->call(UsersTableSeeder::class);
     }

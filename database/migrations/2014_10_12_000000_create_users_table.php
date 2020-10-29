@@ -11,7 +11,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() //テーブルを作成する時に実行されるメソッド
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
@@ -28,7 +28,7 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function down()
+    public function down()  //down() は生成を戻すとき(例えば、php artisan migrate:resetなど)に実行されるもの
     {
         Schema::dropIfExists('users');
     }

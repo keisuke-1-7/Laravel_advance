@@ -14,7 +14,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
+    protected $fillable = [  //create()でレコード作成する時にここで指定している項目が登録できる
         'name', 'email', 'password',
     ];
 
@@ -23,7 +23,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $hidden = [
+    protected $hidden = [  //作成した時に隠しておきたい項目をここに記載しておくことで、表示されなくすることができる
         'password', 'remember_token',
     ];
 }

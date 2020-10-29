@@ -9,7 +9,7 @@ class UsersTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run()//ダミーデータをまとめて登録する時にこのファイルを使う。ここでデータを設定しておく。
     {
         DB::table('users')->insert([
             'name' => 'sample1',
