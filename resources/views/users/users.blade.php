@@ -23,7 +23,7 @@
                 
                 <div class="movie text-left d-inline-block">
                     
-                    ＠{{ $user->name }}  <!-- 動画の前に表示されるユーザの名前 -->
+                    ＠{!! link_to_route('users.show',$user->name,['id'=>$user->id]) !!}  <!-- 動画の前に表示されるユーザの名前 -->
                     
                     <div>  <!-- 動画情報 -->
                         @if($movie)  <!-- $movieは上の方で定義した変数。 -->

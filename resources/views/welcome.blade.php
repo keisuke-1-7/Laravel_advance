@@ -22,5 +22,6 @@
     </div>
     
     @include('users.users',['users'=>$users])
-    
+    <!-- usersフォルダのusers.phpを読み込む！そしてここ（welcome.php）でusersっていう変数を使いたいからそれをusers.phpで定義していた$usersってことにする -->
+    <!-- viewからviewに変数を渡すときもこのような書き方をする -->
 @endsection

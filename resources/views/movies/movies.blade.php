@@ -33,9 +33,14 @@
                             {{ $movie->comment }} 
                         
                         @endif
-                        
-                        
                     </p>
+                    
+                    @if(Auth::id() == $movie->user_id)
+                        {!! Form::open(['route' => ['movies.destroy', $movie->id], 'method' => 'delete']) !!}
+                        <!-- ルーティングはmoviesコントローラのdestroyアクション？で、パラメータは$movie->id(対象となる動画のid)-->
+                            {!! Form::submit('この動画を削除する？', ['class' => 'button btn btn-danger']) !!}
+                        {!! Form::close() !!}
+                    @endif
                     
                 </div>
                 

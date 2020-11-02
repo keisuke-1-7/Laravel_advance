@@ -12,6 +12,7 @@
         <h2 class="mt-5">動画を登録する</h2>
 
         {!! Form::open(['route'=>'movies.store']) !!}
+        <!-- ルーティングはmoviesコントローラ？のストアアクションって意味？ -->
         
             <div class="form-group mt-5">
 
@@ -38,6 +39,7 @@
         
 
         @include('movies.movies', ['movies' => $movies])
-
+         <!-- moviesフォルダのmovies.phpを読み込む！そしてここ（create.php）でmoviesっていう変数を使いたいからそれをmovies.phpで定義していた$moviesってことにする -->
+       　 <!-- viewからviewに変数を渡すときもこのような書き方をする -->
 
 @endsection
