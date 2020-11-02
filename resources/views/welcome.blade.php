@@ -10,4 +10,17 @@
         
     </div>
 
+
+    <div>
+        
+        <div class="text-right">
+            @if(Auth::check())  <!-- もしログイン状態なら -->
+            {{ Auth::user()->name }}  <!-- ログインしているユーザの名前を表示 -->
+            @endif
+        </div>
+        
+    </div>
+    
+    @include('users.users',['users'=>$users])
+    
 @endsection

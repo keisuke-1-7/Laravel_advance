@@ -1,3 +1,6 @@
+<!--トレイトによってこのauthフォルダのなかのregister.blade.phpを表示するための,showRegistrationFormアクション
+が定義されちゃってるから、合わせるためにauthフォルダ作って、そのなかにregisterファイルを作ったのがこれ！！！-->
+
 @extends('layouts.app')
 
 @section('content')
@@ -15,10 +18,11 @@
     <div class="row mt-5 mb-5">
         <div class="col-sm-6 offset-sm-3">
 
-            {!! Form::open(['route' => 'signup.post']) !!}
+            {!! Form::open(['route' => 'signup.post']) !!}  <!-- 送信を押すと、web.phpに書いたsignup.postっていう名前にしたルーティングに入る -->
+
                 <div class="form-group">
-                    {!! Form::label('name', '名前') !!}
-                    {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}
+                    {!! Form::label('name', '名前') !!}  <!--'lavel'は入力する型？。'name'はモデル(DB上)のカラム名。'名前'は表示されるラベル名。つまりこれは名前の入力欄-->
+                    {!! Form::text('name', old('name'), ['class' => 'form-control']) !!}  <!-- oldは入力したものが残るようにする仕組み。['class'=>'form-control']はhtmlタグの情報 -->
                 </div>
 
                 <div class="form-group">
@@ -37,7 +41,8 @@
                 </div>
 
                 {!! Form::submit('新規登録', ['class' => 'btn btn-primary mt-2']) !!}
-            {!! Form::close() !!}
+                
+            {!! Form::close() !!} <!--でも、viewは{{}}使う方がいい-->
 
         </div>
     </div>

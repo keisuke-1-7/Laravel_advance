@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [  //作成した時に隠しておきたい項目をここに記載しておくことで、表示されなくすることができる
         'password', 'remember_token',
     ];
+    
+    public function movies()
+    {
+        return $this->hasMany(Movie::class);
+    }
 }

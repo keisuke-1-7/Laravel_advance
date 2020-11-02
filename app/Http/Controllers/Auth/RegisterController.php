@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;            //ControllerクラスをこのRe
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller     //ここの最後の  Controllerは  =  App\Http\Controllers\Controller  の意味
+class RegisterController extends Controller     //ここの最後の  Controllerは  = App\Http\Controllers\Controller  の意味
 //このRegisterControllerクラスは、Controllerクラスを継承しますと言う意味
 //こうすることでControllerクラスに記述されている変数や関数をこのRegisterControllerクラス内で扱える
 {
@@ -31,7 +31,7 @@ class RegisterController extends Controller     //ここの最後の  Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/';  //新規ユーザ登録が終われば自動的に'/'に飛ばされる
 
     /**
      * Create a new controller instance.
@@ -40,8 +40,9 @@ class RegisterController extends Controller     //ここの最後の  Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
-    }
+        $this->middleware('guest'); //middlewareは処理がコントローラに渡る前に確認される条件
+    }                               //この処理を行うユーザは、必ずゲスト出ないといけないという意味
+    //RegisterControllerでこの処理を行うことで、新規ユーザ登録の二重登録を回避できる？？
 
     /**
      * Get a validator for an incoming registration request.
@@ -49,7 +50,7 @@ class RegisterController extends Controller     //ここの最後の  Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    protected function validator(array $data)
+    protected function validator(array $data)  //このバリデーションで、送られてきたform内容のチェックをする
     {
         return Validator::make($data, [
             'name' => 'required|string|max:255',
@@ -64,7 +65,7 @@ class RegisterController extends Controller     //ここの最後の  Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function create(array $data)  //Userモデルを新たに作る処理。 RegistersUsersトレイトのregisterアクションのcreate()を呼び出している
     {
         return User::create([
             'name' => $data['name'],
