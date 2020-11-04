@@ -33,4 +33,63 @@ class UsersController extends Controller
 
         return view('users.show',$data);  //usersフォルダのshowファイルを表示させて、そこに$dataという変数を持たせる。
     }
+    
+    
+    public function rename(Request $request)
+    {
+        $this->validate($request,[
+                'channel' => 'required|max:15',
+                'name' => 'required|max:15',
+        ]);
+
+        $user=\Auth::user();  //ログインしているユーザが$user
+        $movies = $user->movies()->orderBy('id', 'desc')->paginate(9);
+
+        $user->channel = $request->channel;  //$user(ログインしているユーザ)のchannnelをリクエストされたチャンネル名にする
+        $user->name = $request->name;  //$user(ログインしているユーザ)のnameをリクエストされた名前にする
+        $user->save();          //更新した$userの名前とチャンネルを保存
+        
+        $data=[
+            'user' => $user,
+            'movies' => $movies,
+        ];
+        
+        $data += $this->counts($user);
+
+        return view('users.show',$data);
+    }
+    
+    
+    
+    //ここからフォロー中・フォロワーのユーザ情報を抽出
+    public function followings($id)
+    {
+        $user = User::find($id);
+        $followings = $user->followings()->paginate(9);
+
+        $data = [
+            'user' => $user,
+            'users' => $followings,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.followings', $data);
+    }
+
+
+    public function followers($id)
+    {
+        $user = User::find($id);
+        $followers = $user->followers()->paginate(9);
+
+        $data = [
+            'user' => $user,
+            'users' => $followers,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.followers', $data);
+    }
 }

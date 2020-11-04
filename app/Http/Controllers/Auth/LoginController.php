@@ -18,7 +18,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;  //これもトレイト
+    use AuthenticatesUsers;  //これもトレイト。loginアクションが無いのはこのトレイトがあるから記述しなくていいだけ。
 
     /**
      * Where to redirect users after login.

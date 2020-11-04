@@ -25,6 +25,7 @@ class RegisterController extends Controller     //ここの最後の  Controller
     use RegistersUsers;  //これがトレイト！！
     //「RegistersUsers」と言うクラスを使えますよと定義しているが、これは 
     //showRegistrationForm と register アクションをこのクラス内で使えますよという意味で他のファイルに「RegistersUsers」の中身が定義されている。
+    //ちなみにregisterアクションでログイン処理がされているよ！
 
     /**
      * Where to redirect users after registration.

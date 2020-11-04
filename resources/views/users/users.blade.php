@@ -40,8 +40,9 @@
                         
                         @endif
                         
-                        
                     </p>
+                    
+                    @include('follow.follow_button',['user'=>$user])  <!--userという変数を持ち込む-->
                     
                 </div>
                 

@@ -12,7 +12,7 @@
         <h2 class="mt-5">動画を登録する</h2>
 
         {!! Form::open(['route'=>'movies.store']) !!}
-        <!-- ルーティングはmoviesコントローラ？のストアアクションって意味？ -->
+        <!-- ルーティングは(web.phpのresourceの)moviesのstoreアクションって意味？ -->
         
             <div class="form-group mt-5">
 
