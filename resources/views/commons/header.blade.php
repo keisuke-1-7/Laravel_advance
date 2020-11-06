@@ -22,9 +22,11 @@
                 
                 @else
                 
+                <ul class="nav navbar-nav navbar-right list-unstyled">
                 <li class="nav-item">{!! link_to_route('signup', '新規ユーザ登録', [], ['class' => 'nav-link']) !!}</li>
                 <!--signupはrouting名。新規ユーザ登録はリンクとして表示される文字列。[]はURLパラメータ。4つ目はhtmlの情報でクラス名を指定しているだけ-->
                 <li class="nav-item">{!! link_to_route('login', 'ログイン',[],['class'=>'nav-link']) !!}</li>
+                </ul>
                 
                 @endif
             </ul>
