@@ -229,4 +229,6 @@ return [
         //'Html' => Collective\Html\HtmlFacade::class, // 追加
     ],
 
+    'key_name' => env('API_KEY'),
+
 ];

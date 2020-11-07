@@ -35,6 +35,7 @@ Route::group(['prefix' => 'users/{id}'], function () {
     Route::get('followers', 'UsersController@followers')->name('followers');
     });
 
+Route::resource('rest', 'RestappController',['only'=>['index','show','create','store','destroy']]);
 
 
 Route::group(['middleware'=>'auth'],function(){ //'middleware'=>'auth'で「ログイン認証を通ったユーザのみ」という意味合い
