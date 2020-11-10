@@ -11,7 +11,7 @@ class MoviesController extends Controller
 {
     public function create()
     {
-        $user = \Auth::user();  //$userを定義して、そこにログインしているユーザを入れている
+        $user = \Auth::user();  //$userを定義して、そこにログインしているユーザを入れている　ここの「\」Authのバックスラッシュ何？
         $movies = $user->movies()->orderBy('id','desv')->paginate(9);
         
         $data=[

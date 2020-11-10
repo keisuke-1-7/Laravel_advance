@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth; //名前空間といい、クラスを重複しても識別できるようにしている。基本的にはこのファイルのパスとしている
 
-use App\User;                                   //Userクラス(どこの？)をこのRegisterControllerで使えるように定義している
+use App\User;                                   //Userクラス(モデルのこと？)をこのRegisterControllerで使えるように定義している
 use App\Http\Controllers\Controller;            //ControllerクラスをこのRegisterControllerで使えるように定義している
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -41,7 +41,7 @@ class RegisterController extends Controller     //ここの最後の  Controller
      */
     public function __construct()
     {
-        $this->middleware('guest'); //middlewareは処理がコントローラに渡る前に確認される条件
+        $this->middleware('guest'); //middlewareは処理がコントローラに渡る前に確認される条件、（ここあまり理解してない）
     }                               //この処理を行うユーザは、必ずゲスト出ないといけないという意味
     //RegisterControllerでこの処理を行うことで、新規ユーザ登録の二重登録を回避できる？？
 
@@ -53,7 +53,7 @@ class RegisterController extends Controller     //ここの最後の  Controller
      */
     protected function validator(array $data)  //このバリデーションで、送られてきたform内容のチェックをする
     {
-        return Validator::make($data, [
+        return Validator::make($data, [         //Validator::makeの意味は？
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
